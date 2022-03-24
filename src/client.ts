@@ -1080,6 +1080,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
         // Like above, we have to listen for read receipts from ourselves in order to
         // correctly handle notification counts on encrypted rooms.
         // This fixes https://github.com/vector-im/element-web/issues/9421
+        // START HERE
         this.on(RoomEvent.Receipt, (event, room) => {
             if (room && this.isRoomEncrypted(room.roomId)) {
                 // Figure out if we've read something or if it's just informational
